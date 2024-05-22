@@ -4,7 +4,7 @@
 ## How to Install
 
 - Download a release from https://github.com/Hampo/StageCheats/releases
-- Put the Hacks folder in your Mod Launcher settings directory, usually Documents\My Games\Lucas' Simpsons Hit & Run Mod Launcher
+- Put the Hacks folder in your Mod Launcher settings directory, usually `Documents\My Games\Lucas' Simpsons Hit & Run Mod Launcher`
 - To use the demonstration mod copy the Mods folder to the same directory
 
 ## How to Use
