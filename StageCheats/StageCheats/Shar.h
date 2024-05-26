@@ -2,6 +2,7 @@
 int IdentifySharVersion();
 
 void* GetMissionStageStart_Ptr();
+void* GetMissionInitialize_Ptr();
 
 unsigned int GetCheats();
 void SetCheats(unsigned int enabledCheats);
@@ -12,7 +13,8 @@ bool AddScriptCommand(const char* pszName, const char* pszDescription, unsigned 
 
 struct MissionScriptLoader
 {
-	unsigned char m_Offset[0x18];
+	unsigned char m_Offset[0x14];
+	void* Mission;
 	void* Stage;
 };
 MissionScriptLoader* GetMissionScriptLoader();

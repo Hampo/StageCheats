@@ -5,9 +5,9 @@
 
 static int SharVersion = 0;
 
-inline static void* Choose(unsigned int rel0, unsigned int rel1, unsigned int rel2, unsigned int rel3)
+inline static void* Choose(unsigned int originalEnglish, unsigned int international, unsigned int bestSellerSeries, unsigned int demo)
 {
-	void* releases[] = { (void*)rel0, (void*)rel1, (void*)rel2, (void*)rel3 };
+	void* releases[] = { (void*)originalEnglish, (void*)international, (void*)bestSellerSeries, (void*)demo };
 	return releases[SharVersion];
 }
 
@@ -19,27 +19,32 @@ int IdentifySharVersion()
 
 void* GetMissionStageStart_Ptr()
 {
-	return Choose(0x456AE0, 0x456BA0, 0x4567F0, 0x456650);
+	return Choose(0x456AE0, 0x4567F0, 0x456650, 0x456BA0);
+}
+
+void* GetMissionInitialize_Ptr()
+{
+	return Choose(0x44BE20, 0x44BB00, 0x44B900, 0x44BE80);
 }
 
 unsigned int GetCheats()
 {
-	return *(unsigned int*)Choose(0x6C8420, 0x6C83E0, 0x6C83E0, 0x6C8418);
+	return *(unsigned int*)Choose(0x6C8420, 0x6C83E0, 0x6C8418, 0x6C83E0);
 }
 
 void SetCheats(unsigned int enabledCheats)
 {
-	*(unsigned int*)Choose(0x6C8420, 0x6C83E0, 0x6C83E0, 0x6C8418) = enabledCheats;
+	*(unsigned int*)Choose(0x6C8420, 0x6C83E0, 0x6C8418, 0x6C83E0) = enabledCheats;
 }
 
 void* GetScriptManager()
 {
-	return *(void**)Choose(0x6C9050, 0x6C9010, 0x6C9010, 0x6C9048);
+	return *(void**)Choose(0x6C9050, 0x6C9010, 0x6C9048, 0x6C9010);
 }
 
 bool AddScriptCommand(const char* pszName, const char* pszDescription, unsigned int uiMinimumArgumentCount, void* pScriptManager, SCRIPTCOMMANDPROC pCallback, unsigned int uiMaximumArgumentCount)
 {
-	void* pFunc = Choose(0x42E2B0, 0x42E570, 0x42E240, 0x42DEA0);
+	void* pFunc = Choose(0x42E2B0, 0x42E240, 0x42DEA0, 0x42E570);
 	unsigned int uiResult;
 	_asm
 	{
@@ -57,6 +62,6 @@ bool AddScriptCommand(const char* pszName, const char* pszDescription, unsigned 
 
 MissionScriptLoader* GetMissionScriptLoader()
 {
-	return *(MissionScriptLoader**)Choose(0x6C8990, 0x6C8950, 0x6C8950, 0x6C8988);
+	return *(MissionScriptLoader**)Choose(0x6C8990, 0x6C8950, 0x6C8988, 0x6C8950);
 }
 
